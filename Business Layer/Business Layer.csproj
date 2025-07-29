@@ -8,12 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Data Layer\Data Layer.csproj" />
+    <PackageReference Include="AutoMapper" Version="15.0.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Services\" />
+    <ProjectReference Include="..\Data Layer\Data Layer.csproj" />
   </ItemGroup>
 
 </Project>

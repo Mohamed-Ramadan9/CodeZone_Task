@@ -3,60 +3,63 @@
   "WorkspaceRootPath": "G:\\CodeZone_Mohamed_Ramadan\\Mohamed_Ramadan_Code_Zone_Task\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9590A6CA-E0E4-49FA-9E21-09FDA3D15A9C}|..\\Data Layer\\Data Layer.csproj|g:\\codezone_mohamed_ramadan\\data layer\\data\\interfaces\\iemployeerepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{857D59F9-00F2-4319-BB2D-738C46648C73}|Mohamed_Ramadan_Code_Zone_Task.csproj|g:\\codezone_mohamed_ramadan\\mohamed_ramadan_code_zone_task\\controllers\\departmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{857D59F9-00F2-4319-BB2D-738C46648C73}|Mohamed_Ramadan_Code_Zone_Task.csproj|solutionrelative:controllers\\departmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9590A6CA-E0E4-49FA-9E21-09FDA3D15A9C}|..\\Data Layer\\Data Layer.csproj|g:\\codezone_mohamed_ramadan\\data layer\\data\\interfaces\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F4B6951D-F412-4722-97E4-8159C348D032}|..\\Business Layer\\Business Layer.csproj|g:\\codezone_mohamed_ramadan\\business layer\\services\\attendanceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9590A6CA-E0E4-49FA-9E21-09FDA3D15A9C}|..\\Data Layer\\Data Layer.csproj|g:\\codezone_mohamed_ramadan\\data layer\\data\\interfaces\\idepartmentrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F4B6951D-F412-4722-97E4-8159C348D032}|..\\Business Layer\\Business Layer.csproj|g:\\codezone_mohamed_ramadan\\business layer\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9590A6CA-E0E4-49FA-9E21-09FDA3D15A9C}|..\\Data Layer\\Data Layer.csproj|g:\\codezone_mohamed_ramadan\\data layer\\data\\interfaces\\iattendancerepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F4B6951D-F412-4722-97E4-8159C348D032}|..\\Business Layer\\Business Layer.csproj|g:\\codezone_mohamed_ramadan\\business layer\\interfaces\\iattendanceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9590A6CA-E0E4-49FA-9E21-09FDA3D15A9C}|..\\Data Layer\\Data Layer.csproj|g:\\codezone_mohamed_ramadan\\data layer\\data\\repository\\attendancerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9590A6CA-E0E4-49FA-9E21-09FDA3D15A9C}|..\\Data Layer\\Data Layer.csproj|g:\\codezone_mohamed_ramadan\\data layer\\data\\repository\\departmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9590A6CA-E0E4-49FA-9E21-09FDA3D15A9C}|..\\Data Layer\\Data Layer.csproj|g:\\codezone_mohamed_ramadan\\data layer\\data\\interfaces\\iattendancerepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4B6951D-F412-4722-97E4-8159C348D032}|..\\Business Layer\\Business Layer.csproj|g:\\codezone_mohamed_ramadan\\business layer\\interfaces\\iemployeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4B6951D-F412-4722-97E4-8159C348D032}|..\\Business Layer\\Business Layer.csproj|g:\\codezone_mohamed_ramadan\\business layer\\interfaces\\idepartmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4B6951D-F412-4722-97E4-8159C348D032}|..\\Business Layer\\Business Layer.csproj|g:\\codezone_mohamed_ramadan\\business layer\\viewmodels\\attendance\\attendanceviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9590A6CA-E0E4-49FA-9E21-09FDA3D15A9C}|..\\Data Layer\\Data Layer.csproj|g:\\codezone_mohamed_ramadan\\data layer\\data\\repository\\employeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{9590A6CA-E0E4-49FA-9E21-09FDA3D15A9C}|..\\Data Layer\\Data Layer.csproj|g:\\codezone_mohamed_ramadan\\data layer\\data\\interfaces\\iemployeerepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9590A6CA-E0E4-49FA-9E21-09FDA3D15A9C}|..\\Data Layer\\Data Layer.csproj|g:\\codezone_mohamed_ramadan\\data layer\\data\\repository\\generic repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9590A6CA-E0E4-49FA-9E21-09FDA3D15A9C}|..\\Data Layer\\Data Layer.csproj|g:\\codezone_mohamed_ramadan\\data layer\\data\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F4B6951D-F412-4722-97E4-8159C348D032}|..\\Business Layer\\Business Layer.csproj|g:\\codezone_mohamed_ramadan\\business layer\\viewmodels\\employee\\employeelistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9590A6CA-E0E4-49FA-9E21-09FDA3D15A9C}|..\\Data Layer\\Data Layer.csproj|g:\\codezone_mohamed_ramadan\\data layer\\data\\models\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9590A6CA-E0E4-49FA-9E21-09FDA3D15A9C}|..\\Data Layer\\Data Layer.csproj|g:\\codezone_mohamed_ramadan\\data layer\\data\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F4B6951D-F412-4722-97E4-8159C348D032}|..\\Business Layer\\Business Layer.csproj|g:\\codezone_mohamed_ramadan\\business layer\\viewmodels\\employee\\employeeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9590A6CA-E0E4-49FA-9E21-09FDA3D15A9C}|..\\Data Layer\\Data Layer.csproj|g:\\codezone_mohamed_ramadan\\data layer\\data\\models\\attendance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F4B6951D-F412-4722-97E4-8159C348D032}|..\\Business Layer\\Business Layer.csproj|g:\\codezone_mohamed_ramadan\\business layer\\services\\departmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4B6951D-F412-4722-97E4-8159C348D032}|..\\Business Layer\\Business Layer.csproj|g:\\codezone_mohamed_ramadan\\business layer\\viewmodels\\department\\departmentviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9590A6CA-E0E4-49FA-9E21-09FDA3D15A9C}|..\\Data Layer\\Data Layer.csproj|g:\\codezone_mohamed_ramadan\\data layer\\data\\interfaces\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{857D59F9-00F2-4319-BB2D-738C46648C73}|Mohamed_Ramadan_Code_Zone_Task.csproj|g:\\codezone_mohamed_ramadan\\mohamed_ramadan_code_zone_task\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{857D59F9-00F2-4319-BB2D-738C46648C73}|Mohamed_Ramadan_Code_Zone_Task.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{857D59F9-00F2-4319-BB2D-738C46648C73}|Mohamed_Ramadan_Code_Zone_Task.csproj|g:\\codezone_mohamed_ramadan\\mohamed_ramadan_code_zone_task\\mohamed_ramadan_code_zone_task.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{857D59F9-00F2-4319-BB2D-738C46648C73}|Mohamed_Ramadan_Code_Zone_Task.csproj|solutionrelative:mohamed_ramadan_code_zone_task.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9590A6CA-E0E4-49FA-9E21-09FDA3D15A9C}|..\\Data Layer\\Data Layer.csproj|g:\\codezone_mohamed_ramadan\\data layer\\data layer.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9590A6CA-E0E4-49FA-9E21-09FDA3D15A9C}|..\\Data Layer\\Data Layer.csproj|g:\\codezone_mohamed_ramadan\\data layer\\data\\dbcontext folder\\employeedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9590A6CA-E0E4-49FA-9E21-09FDA3D15A9C}|..\\Data Layer\\Data Layer.csproj|g:\\codezone_mohamed_ramadan\\data layer\\data\\custom validations\\uniqueemailattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9590A6CA-E0E4-49FA-9E21-09FDA3D15A9C}|..\\Data Layer\\Data Layer.csproj|g:\\codezone_mohamed_ramadan\\data layer\\data\\custom validations\\uniqueattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -66,63 +69,57 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 21,
+          "SelectedChildIndex": 0,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DepartmentController.cs",
+              "DocumentMoniker": "G:\\CodeZone_Mohamed_Ramadan\\Mohamed_Ramadan_Code_Zone_Task\\Controllers\\DepartmentController.cs",
+              "RelativeDocumentMoniker": "Controllers\\DepartmentController.cs",
+              "ToolTip": "G:\\CodeZone_Mohamed_Ramadan\\Mohamed_Ramadan_Code_Zone_Task\\Controllers\\DepartmentController.cs",
+              "RelativeToolTip": "Controllers\\DepartmentController.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAwwFUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T17:43:17.352Z",
+              "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AttendanceService.cs",
+              "DocumentMoniker": "G:\\CodeZone_Mohamed_Ramadan\\Business Layer\\Services\\AttendanceService.cs",
+              "RelativeDocumentMoniker": "..\\Business Layer\\Services\\AttendanceService.cs",
+              "ToolTip": "G:\\CodeZone_Mohamed_Ramadan\\Business Layer\\Services\\AttendanceService.cs",
+              "RelativeToolTip": "..\\Business Layer\\Services\\AttendanceService.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAowHoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T03:49:27.739Z",
+              "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IAttendanceService.cs",
+              "DocumentMoniker": "G:\\CodeZone_Mohamed_Ramadan\\Business Layer\\Interfaces\\IAttendanceService.cs",
+              "RelativeDocumentMoniker": "..\\Business Layer\\Interfaces\\IAttendanceService.cs",
+              "ToolTip": "G:\\CodeZone_Mohamed_Ramadan\\Business Layer\\Interfaces\\IAttendanceService.cs",
+              "RelativeToolTip": "..\\Business Layer\\Interfaces\\IAttendanceService.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAA9wBwAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T03:47:35.122Z"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IAttendanceRepo.cs",
+              "DocumentMoniker": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data\\Interfaces\\IAttendanceRepo.cs",
+              "RelativeDocumentMoniker": "..\\Data Layer\\Data\\Interfaces\\IAttendanceRepo.cs",
+              "ToolTip": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data\\Interfaces\\IAttendanceRepo.cs",
+              "RelativeToolTip": "..\\Data Layer\\Data\\Interfaces\\IAttendanceRepo.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T03:41:22.08Z"
             },
             {
               "$type": "Document",
@@ -132,228 +129,177 @@
               "RelativeDocumentMoniker": "..\\Data Layer\\Data\\Repository\\AttendanceRepository.cs",
               "ToolTip": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data\\Repository\\AttendanceRepository.cs",
               "RelativeToolTip": "..\\Data Layer\\Data\\Repository\\AttendanceRepository.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAACEAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAG0AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-28T18:40:52.655Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-29T03:40:29.848Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "EmployeeRepository.cs",
-              "DocumentMoniker": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data\\Repository\\EmployeeRepository.cs",
-              "RelativeDocumentMoniker": "..\\Data Layer\\Data\\Repository\\EmployeeRepository.cs",
-              "ToolTip": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data\\Repository\\EmployeeRepository.cs",
-              "RelativeToolTip": "..\\Data Layer\\Data\\Repository\\EmployeeRepository.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAACIAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-28T18:40:35.686Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "DepartmentRepository.cs",
-              "DocumentMoniker": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data\\Repository\\DepartmentRepository.cs",
-              "RelativeDocumentMoniker": "..\\Data Layer\\Data\\Repository\\DepartmentRepository.cs",
-              "ToolTip": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data\\Repository\\DepartmentRepository.cs",
-              "RelativeToolTip": "..\\Data Layer\\Data\\Repository\\DepartmentRepository.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAUwCYAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-28T18:40:13.882Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Mohamed_Ramadan_Code_Zone_Task.csproj",
-              "DocumentMoniker": "G:\\CodeZone_Mohamed_Ramadan\\Mohamed_Ramadan_Code_Zone_Task\\Mohamed_Ramadan_Code_Zone_Task.csproj",
-              "RelativeDocumentMoniker": "Mohamed_Ramadan_Code_Zone_Task.csproj",
-              "ToolTip": "G:\\CodeZone_Mohamed_Ramadan\\Mohamed_Ramadan_Code_Zone_Task\\Mohamed_Ramadan_Code_Zone_Task.csproj",
-              "RelativeToolTip": "Mohamed_Ramadan_Code_Zone_Task.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-07-28T18:30:45.443Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Data Layer.csproj",
-              "DocumentMoniker": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data Layer.csproj",
-              "RelativeDocumentMoniker": "..\\Data Layer\\Data Layer.csproj",
-              "ToolTip": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data Layer.csproj",
-              "RelativeToolTip": "..\\Data Layer\\Data Layer.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-07-28T18:28:51.607Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IAttendanceRepo.cs",
-              "DocumentMoniker": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data\\Interfaces\\IAttendanceRepo.cs",
-              "RelativeDocumentMoniker": "..\\Data Layer\\Data\\Interfaces\\IAttendanceRepo.cs",
-              "ToolTip": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data\\Interfaces\\IAttendanceRepo.cs",
-              "RelativeToolTip": "..\\Data Layer\\Data\\Interfaces\\IAttendanceRepo.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-28T17:49:23.733Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "IDepartmentRepo.cs",
-              "DocumentMoniker": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data\\Interfaces\\IDepartmentRepo.cs",
-              "RelativeDocumentMoniker": "..\\Data Layer\\Data\\Interfaces\\IDepartmentRepo.cs",
-              "ToolTip": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data\\Interfaces\\IDepartmentRepo.cs",
-              "RelativeToolTip": "..\\Data Layer\\Data\\Interfaces\\IDepartmentRepo.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA8AAAA/AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-28T17:47:02.08Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 10,
               "Title": "IEmployeeRepo.cs",
               "DocumentMoniker": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data\\Interfaces\\IEmployeeRepo.cs",
               "RelativeDocumentMoniker": "..\\Data Layer\\Data\\Interfaces\\IEmployeeRepo.cs",
               "ToolTip": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data\\Interfaces\\IEmployeeRepo.cs",
               "RelativeToolTip": "..\\Data Layer\\Data\\Interfaces\\IEmployeeRepo.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAABXAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-28T17:42:31.724Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Generic Repository.cs",
-              "DocumentMoniker": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data\\Repository\\Generic Repository.cs",
-              "RelativeDocumentMoniker": "..\\Data Layer\\Data\\Repository\\Generic Repository.cs",
-              "ToolTip": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data\\Repository\\Generic Repository.cs",
-              "RelativeToolTip": "..\\Data Layer\\Data\\Repository\\Generic Repository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-28T17:21:53.021Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "UniqueAttribute.cs",
-              "DocumentMoniker": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data\\Custom Validations\\UniqueAttribute.cs",
-              "RelativeDocumentMoniker": "..\\Data Layer\\Data\\Custom Validations\\UniqueAttribute.cs",
-              "ToolTip": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data\\Custom Validations\\UniqueAttribute.cs",
-              "RelativeToolTip": "..\\Data Layer\\Data\\Custom Validations\\UniqueAttribute.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-28T16:31:26.859Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "UniqueEmailAttribute.cs",
-              "DocumentMoniker": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data\\Custom Validations\\UniqueEmailAttribute.cs",
-              "RelativeDocumentMoniker": "..\\Data Layer\\Data\\Custom Validations\\UniqueEmailAttribute.cs",
-              "ToolTip": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data\\Custom Validations\\UniqueEmailAttribute.cs",
-              "RelativeToolTip": "..\\Data Layer\\Data\\Custom Validations\\UniqueEmailAttribute.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-27T21:57:35.146Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "EmployeeDbContext.cs",
-              "DocumentMoniker": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data\\DbContext Folder\\EmployeeDbContext.cs",
-              "RelativeDocumentMoniker": "..\\Data Layer\\Data\\DbContext Folder\\EmployeeDbContext.cs",
-              "ToolTip": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data\\DbContext Folder\\EmployeeDbContext.cs",
-              "RelativeToolTip": "..\\Data Layer\\Data\\DbContext Folder\\EmployeeDbContext.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAA5wBEAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-27T15:51:42.653Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "IRepository.cs",
-              "DocumentMoniker": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data\\Interfaces\\IRepository.cs",
-              "RelativeDocumentMoniker": "..\\Data Layer\\Data\\Interfaces\\IRepository.cs",
-              "ToolTip": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data\\Interfaces\\IRepository.cs",
-              "RelativeToolTip": "..\\Data Layer\\Data\\Interfaces\\IRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-26T18:54:15.963Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ErrorViewModel.cs",
-              "DocumentMoniker": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data\\Models\\ErrorViewModel.cs",
-              "RelativeDocumentMoniker": "..\\Data Layer\\Data\\Models\\ErrorViewModel.cs",
-              "ToolTip": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data\\Models\\ErrorViewModel.cs",
-              "RelativeToolTip": "..\\Data Layer\\Data\\Models\\ErrorViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-26T18:35:20.255Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Attendance.cs",
-              "DocumentMoniker": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data\\Models\\Attendance.cs",
-              "RelativeDocumentMoniker": "..\\Data Layer\\Data\\Models\\Attendance.cs",
-              "ToolTip": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data\\Models\\Attendance.cs",
-              "RelativeToolTip": "..\\Data Layer\\Data\\Models\\Attendance.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAAAAwAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-26T18:32:45.636Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Employee.cs",
-              "DocumentMoniker": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data\\Models\\Employee.cs",
-              "RelativeDocumentMoniker": "..\\Data Layer\\Data\\Models\\Employee.cs",
-              "ToolTip": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data\\Models\\Employee.cs",
-              "RelativeToolTip": "..\\Data Layer\\Data\\Models\\Employee.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-26T18:32:33.37Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-29T03:39:00.099Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
+              "Title": "EmployeeRepository.cs",
+              "DocumentMoniker": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data\\Repository\\EmployeeRepository.cs",
+              "RelativeDocumentMoniker": "..\\Data Layer\\Data\\Repository\\EmployeeRepository.cs",
+              "ToolTip": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data\\Repository\\EmployeeRepository.cs",
+              "RelativeToolTip": "..\\Data Layer\\Data\\Repository\\EmployeeRepository.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAowCwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T03:36:55.111Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "EmployeeListViewModel.cs",
+              "DocumentMoniker": "G:\\CodeZone_Mohamed_Ramadan\\Business Layer\\ViewModels\\Employee\\EmployeeListViewModel.cs",
+              "RelativeDocumentMoniker": "..\\Business Layer\\ViewModels\\Employee\\EmployeeListViewModel.cs",
+              "ToolTip": "G:\\CodeZone_Mohamed_Ramadan\\Business Layer\\ViewModels\\Employee\\EmployeeListViewModel.cs",
+              "RelativeToolTip": "..\\Business Layer\\ViewModels\\Employee\\EmployeeListViewModel.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAYAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T03:26:21.614Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "EmployeeViewModel.cs",
+              "DocumentMoniker": "G:\\CodeZone_Mohamed_Ramadan\\Business Layer\\ViewModels\\Employee\\EmployeeViewModel.cs",
+              "RelativeDocumentMoniker": "..\\Business Layer\\ViewModels\\Employee\\EmployeeViewModel.cs",
+              "ToolTip": "G:\\CodeZone_Mohamed_Ramadan\\Business Layer\\ViewModels\\Employee\\EmployeeViewModel.cs",
+              "RelativeToolTip": "..\\Business Layer\\ViewModels\\Employee\\EmployeeViewModel.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T03:26:10.916Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EmployeeService.cs",
+              "DocumentMoniker": "G:\\CodeZone_Mohamed_Ramadan\\Business Layer\\Services\\EmployeeService.cs",
+              "RelativeDocumentMoniker": "..\\Business Layer\\Services\\EmployeeService.cs",
+              "ToolTip": "G:\\CodeZone_Mohamed_Ramadan\\Business Layer\\Services\\EmployeeService.cs",
+              "RelativeToolTip": "..\\Business Layer\\Services\\EmployeeService.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAIAwwFYAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T01:15:41.402Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "DepartmentViewModel.cs",
+              "DocumentMoniker": "G:\\CodeZone_Mohamed_Ramadan\\Business Layer\\ViewModels\\Department\\DepartmentViewModel.cs",
+              "RelativeDocumentMoniker": "..\\Business Layer\\ViewModels\\Department\\DepartmentViewModel.cs",
+              "ToolTip": "G:\\CodeZone_Mohamed_Ramadan\\Business Layer\\ViewModels\\Department\\DepartmentViewModel.cs",
+              "RelativeToolTip": "..\\Business Layer\\ViewModels\\Department\\DepartmentViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T00:50:44.516Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "Department.cs",
               "DocumentMoniker": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data\\Models\\Department.cs",
               "RelativeDocumentMoniker": "..\\Data Layer\\Data\\Models\\Department.cs",
               "ToolTip": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data\\Models\\Department.cs",
               "RelativeToolTip": "..\\Data Layer\\Data\\Models\\Department.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-26T18:28:07.615Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-29T00:43:45.94Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 17,
+              "Title": "IRepository.cs",
+              "DocumentMoniker": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data\\Interfaces\\IRepository.cs",
+              "RelativeDocumentMoniker": "..\\Data Layer\\Data\\Interfaces\\IRepository.cs",
+              "ToolTip": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data\\Interfaces\\IRepository.cs",
+              "RelativeToolTip": "..\\Data Layer\\Data\\Interfaces\\IRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T00:30:18.538Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Generic Repository.cs",
+              "DocumentMoniker": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data\\Repository\\Generic Repository.cs",
+              "RelativeDocumentMoniker": "..\\Data Layer\\Data\\Repository\\Generic Repository.cs",
+              "ToolTip": "G:\\CodeZone_Mohamed_Ramadan\\Data Layer\\Data\\Repository\\Generic Repository.cs",
+              "RelativeToolTip": "..\\Data Layer\\Data\\Repository\\Generic Repository.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAEwBkAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T00:29:42.633Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "DepartmentService.cs",
+              "DocumentMoniker": "G:\\CodeZone_Mohamed_Ramadan\\Business Layer\\Services\\DepartmentService.cs",
+              "RelativeDocumentMoniker": "..\\Business Layer\\Services\\DepartmentService.cs",
+              "ToolTip": "G:\\CodeZone_Mohamed_Ramadan\\Business Layer\\Services\\DepartmentService.cs",
+              "RelativeToolTip": "..\\Business Layer\\Services\\DepartmentService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFoAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T00:25:33.965Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IDepartmentService.cs",
+              "DocumentMoniker": "G:\\CodeZone_Mohamed_Ramadan\\Business Layer\\Interfaces\\IDepartmentService.cs",
+              "RelativeDocumentMoniker": "..\\Business Layer\\Interfaces\\IDepartmentService.cs",
+              "ToolTip": "G:\\CodeZone_Mohamed_Ramadan\\Business Layer\\Interfaces\\IDepartmentService.cs",
+              "RelativeToolTip": "..\\Business Layer\\Interfaces\\IDepartmentService.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T00:11:07.846Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IEmployeeService.cs",
+              "DocumentMoniker": "G:\\CodeZone_Mohamed_Ramadan\\Business Layer\\Interfaces\\IEmployeeService.cs",
+              "RelativeDocumentMoniker": "..\\Business Layer\\Interfaces\\IEmployeeService.cs",
+              "ToolTip": "G:\\CodeZone_Mohamed_Ramadan\\Business Layer\\Interfaces\\IEmployeeService.cs",
+              "RelativeToolTip": "..\\Business Layer\\Interfaces\\IEmployeeService.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAABuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T00:10:44.017Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AttendanceViewModel.cs",
+              "DocumentMoniker": "G:\\CodeZone_Mohamed_Ramadan\\Business Layer\\ViewModels\\Attendance\\AttendanceViewModel.cs",
+              "RelativeDocumentMoniker": "..\\Business Layer\\ViewModels\\Attendance\\AttendanceViewModel.cs",
+              "ToolTip": "G:\\CodeZone_Mohamed_Ramadan\\Business Layer\\ViewModels\\Attendance\\AttendanceViewModel.cs",
+              "RelativeToolTip": "..\\Business Layer\\ViewModels\\Attendance\\AttendanceViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T23:35:43.807Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
               "Title": "Program.cs",
               "DocumentMoniker": "G:\\CodeZone_Mohamed_Ramadan\\Mohamed_Ramadan_Code_Zone_Task\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "G:\\CodeZone_Mohamed_Ramadan\\Mohamed_Ramadan_Code_Zone_Task\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA4AAAA0AAAAAAAAAA==",
+              "ViewState": "AgIAABcAAAAAAAAAAAAgwBUAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-26T17:23:05.141Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-26T17:23:05.141Z"
             }
           ]
         }

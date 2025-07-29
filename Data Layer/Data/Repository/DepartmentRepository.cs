@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Data_Layer.Data.DbContext_Folder;
 using Data_Layer.Data.Interfaces;
 using Data_Layer.Data.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Data_Layer.Data.Repository
 {
@@ -18,24 +19,47 @@ namespace Data_Layer.Data.Repository
             _context = context;
         }
 
-        public Task<Department> GetDepartmentByCode(string code)
+        public async Task<Department> GetDepartmentByCodeAsync(string code)
         {
-            throw new NotImplementedException();
+            return await _context.Departments
+                .Include(d => d.Employees)      
+                .FirstOrDefaultAsync(d => d.Code == code);
         }
 
-        public Task<int> GetEmployeeCountAsync(string departmentCode)
+        public async Task<int> GetEmployeeCountAsync(string departmentCode)
         {
-            throw new NotImplementedException();
+            return await _context.Employees
+                .CountAsync(e => e.DepartmentCode == departmentCode);
         }
 
-        public Task<bool> IsCodeUniqueAsync(string code, int? excludeId = null)
+        public async Task<bool> IsCodeUniqueAsync(string code, string? excludeCode = null)
         {
-            throw new NotImplementedException();
+            var query = _context.Departments.AsQueryable();
+
+            if (excludeCode != null)
+                // exclude the department with that Code (for edit scenarios)
+                query = query.Where(d => d.Code != excludeCode);
+
+            bool exists = await query
+                .AnyAsync(d => d.Code.ToUpper() == code.ToUpper());
+
+            // true = no duplicate found
+            return !exists;
         }
 
-        public Task<bool> IsNameUniqueAsync(string name, int? excludeId = null)
+        public async Task<bool> IsNameUniqueAsync(string name, string? excludeCode = null)
         {
-            throw new NotImplementedException();
+            var query = _context.Departments.AsQueryable();
+
+            if (excludeCode != null)
+               
+                query = query.Where(d => d.Code != excludeCode);
+
+            bool exists = await query
+                .AnyAsync(d => d.Name.ToLower() == name.ToLower());
+
+            return !exists;
         }
+
     }
 }

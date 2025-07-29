@@ -24,13 +24,13 @@ namespace Data_Layer.Data.Repository
         public async Task AddAsync(T entity)
         {
             _dbSet.Add(entity);
-            await _context.SaveChangesAsync();
+            
         }
 
         public async Task UpdateAsync(T entity)
         {
             _dbSet.Update(entity);
-            await _context.SaveChangesAsync();
+            
         }
 
         public async Task DeleteAsync(object id)
@@ -38,11 +38,12 @@ namespace Data_Layer.Data.Repository
             var entity = await _dbSet.FindAsync(id);
             if (entity == null) return;
             _dbSet.Remove(entity);
-            await _context.SaveChangesAsync();
+            
         }
 
-       
-
-        
+        public async Task<int> SaveChangesAsync()
+        {
+            return await _context.SaveChangesAsync();
+        }
     }
 }

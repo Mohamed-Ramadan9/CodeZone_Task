@@ -10,6 +10,7 @@ namespace Data_Layer.Data.Interfaces
 {
     public interface IAttendanceRepo : IRepository<Attendance>
     {
+        Task<Attendance> GetAttendanceByIdAsync(int id);
         Task<Attendance> GetByEmployeeAndDateAsync(int employeeId, DateTime date);
         Task<IEnumerable<Attendance>> GetFilteredAttendanceAsync(
             string? departmentCode = null,
@@ -20,5 +21,10 @@ namespace Data_Layer.Data.Interfaces
             int employeeId,
             int year,
             int month);
+
+        Task<Dictionary<int, (int presents, int absents, double percentage)>>
+            GetMonthlyStatsForEmployees(List<int> employeeCodes, int year, int month);
+        Task<IEnumerable<Attendance>> GetByEmployeeAsync(int employeeCode);
+
     }
 }

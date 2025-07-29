@@ -8,7 +8,7 @@ namespace CodeZoneTask_MVC_.Interfaces
         Task AddAsync(T entity);
         Task UpdateAsync(T entity);
         Task DeleteAsync(object id);
-        
-       
+        Task<int> SaveChangesAsync();
+
     }
 }

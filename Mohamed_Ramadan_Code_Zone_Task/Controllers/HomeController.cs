@@ -1,6 +1,5 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using Mohamed_Ramadan_Code_Zone_Task.Models;
 
 namespace Mohamed_Ramadan_Code_Zone_Task.Controllers
 {
@@ -26,7 +25,7 @@ namespace Mohamed_Ramadan_Code_Zone_Task.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(new Data_Layer.Data.Models.ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

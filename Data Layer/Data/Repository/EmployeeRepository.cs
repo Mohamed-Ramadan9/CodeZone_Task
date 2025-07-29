@@ -7,6 +7,7 @@ using CodeZoneTask_MVC_.Interfaces;
 using Data_Layer.Data.DbContext_Folder;
 using Data_Layer.Data.Interfaces;
 using Data_Layer.Data.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Data_Layer.Data.Repository
 {
@@ -19,19 +20,44 @@ namespace Data_Layer.Data.Repository
             _context = context;
         }
 
-        public Task<Employee> GetEmployeeByCode(int code)
+        public async Task<Employee> GetEmployeeByCode(int code)
         {
-            throw new NotImplementedException();
+            return await _context.Employees
+                .Include(e => e.Department)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(e => e.EmployeeCode == code);  
         }
 
-        public Task<IEnumerable<Employee>> GetEmployeesByDepartmentAsync(string departmentCode)
+        public async Task<IEnumerable<Employee>> GetEmployeesByDepartmentAsync(string departmentCode)
         {
-            throw new NotImplementedException();
+            return await _context.Employees
+                .Include(e => e.Department)
+                .Where(e => e.Department.Code == departmentCode)
+                .ToListAsync();
         }
 
-        public Task<bool> IsEmailUniqueAsync(string email, int? excludeId = null)
+        public async Task<IEnumerable<Employee>> GetAllEmployeesWithDepartmentAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Employees
+                .Include(e => e.Department)
+                .AsNoTracking()
+                .ToListAsync();
+        }
+
+        public async Task<bool> IsEmailUniqueAsync(string email, int? excludeCode = null)
+        {
+          
+            var query = _context.Employees.AsQueryable();
+
+            if (excludeCode.HasValue)
+            {
+                query = query.Where(e => e.EmployeeCode != excludeCode.Value);
+            }
+
+            bool exists = await query
+                .AnyAsync(e => e.Email.ToLower() == email.ToLower());
+
+            return !exists;
         }
     }
 }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mohamed_Ramadan_Code_Zone_Task")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7817fd62012450d6e71d3c13d9e61e3298600500")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mohamed_Ramadan_Code_Zone_Task")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mohamed_Ramadan_Code_Zone_Task")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
