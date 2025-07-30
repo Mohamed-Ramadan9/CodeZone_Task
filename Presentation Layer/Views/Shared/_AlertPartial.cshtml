@@ -1,9 +1,25 @@
-﻿<div class="alert-container">
+﻿<div id="alertContainer" style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 9999; width: 400px; display: none;">
     @if (TempData["AlertMessage"] != null)
     {
-        <div class="alert alert-@TempData["AlertType"] alert-dismissible fade show custom-alert" role="alert">
+        <div class="alert alert-@TempData["AlertType"] alert-dismissible fade show" role="alert" style="margin: 0; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
             <strong>@TempData["AlertTitle"]</strong> @TempData["AlertMessage"]
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     }
 </div>
+
+<script>
+    $(document).ready(function() {
+        // Show alert if there's a TempData message
+        @if (TempData["AlertMessage"] != null)
+        {
+            <text>
+            $('#alertContainer').show();
+            // Auto-dismiss after 3 seconds
+            setTimeout(function() {
+                $('#alertContainer').fadeOut();
+            }, 3000);
+            </text>
+        }
+    });
+</script>

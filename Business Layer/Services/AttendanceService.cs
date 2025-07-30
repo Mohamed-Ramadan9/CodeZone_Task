@@ -83,9 +83,8 @@ namespace Business_Layer.Services
 
             if (existing != null)
             {
-                // Update existing record
-                existing.Status = model.Status;
-                await _attendanceRepository.UpdateAsync(existing);
+                // Don't update, just throw an exception for duplicate
+                throw new ValidationException($"Attendance for {employee.FullName} on {model.Date.Date:MM/dd/yyyy} already exists. You can only mark one attendance per employee per day.");
             }
             else
             {
@@ -107,8 +106,7 @@ namespace Business_Layer.Services
             if (attendance == null)
                 throw new KeyNotFoundException("Attendance record not found");
 
-            // Update properties
-            attendance.EmployeeCode = model.EmployeeCode;
+            // Update only date and status (keep employee code unchanged)
             attendance.Date = model.Date;
             attendance.Status = model.Status;
 

@@ -193,15 +193,39 @@ namespace Mohamed_Ramadan_Code_Zone_Task.Controllers
             try
             {
                 await _attendanceService.DeleteAttendanceAsync(id);
+                
+                // Check if this is an AJAX request
+                if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+                {
+                    return Json(new { success = true, message = "Attendance record deleted successfully" });
+                }
+                
                 SetAlert("success", "Deleted", "Attendance record deleted successfully");
+                return RedirectToAction(nameof(Index));
+            }
+            catch (KeyNotFoundException ex)
+            {
+                if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+                {
+                    return Json(new { success = false, message = "Attendance record not found" });
+                }
+                
+                SetAlert("danger", "Error", "Attendance record not found");
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)
             {
+                if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+                {
+                    return Json(new { success = false, message = $"Couldn't delete attendance record: {ex.Message}" });
+                }
+                
                 SetAlert("danger", "Error", $"Couldn't delete attendance record: {ex.Message}");
                 return RedirectToAction(nameof(Delete), new { id });
             }
         }
+
+
 
         public async Task<IActionResult> Details(int id)
         {
@@ -280,9 +304,42 @@ namespace Mohamed_Ramadan_Code_Zone_Task.Controllers
                 
                 return Json(new { success = true });
             }
-            catch (Exception ex)
+            catch (ValidationException ex)
             {
                 return Json(new { success = false, message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = "An error occurred while marking attendance" });
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> UpdateAttendanceRecord(int id, DateTime date, int status)
+        {
+            try
+            {
+                var attendanceStatus = (Data_Layer.Data.Models.AttendanceStatus)status;
+                
+                var model = new AttendanceRecordViewModel
+                {
+                    Id = id,
+                    Date = date,
+                    Status = attendanceStatus
+                };
+
+                await _attendanceService.UpdateAttendanceAsync(model);
+                
+                return Json(new { success = true });
+            }
+            catch (ValidationException ex)
+            {
+                return Json(new { success = false, message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = "An error occurred while updating attendance record" });
             }
         }
 
@@ -330,6 +387,21 @@ namespace Mohamed_Ramadan_Code_Zone_Task.Controllers
             catch (Exception ex)
             {
                 return Json(new { error = ex.Message });
+            }
+        }
+
+        // AJAX method to get all attendance records for filtering
+        [HttpGet]
+        public async Task<IActionResult> GetAllAttendanceRecords()
+        {
+            try
+            {
+                var allAttendanceRecords = await _attendanceService.GetFilteredAttendanceAsync();
+                return Json(allAttendanceRecords);
+            }
+            catch (Exception ex)
+            {
+                return Json(new List<AttendanceViewModel>());
             }
         }
     }
