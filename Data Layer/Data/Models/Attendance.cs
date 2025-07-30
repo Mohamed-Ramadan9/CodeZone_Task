@@ -7,7 +7,6 @@ namespace Data_Layer.Data.Models
     {
         public int Id { get; set; }
         public DateTime Date { get; set; }
-        public bool IsPresent { get; set; }
 
         [ForeignKey("Employee")]
         public int EmployeeCode { get; set; }

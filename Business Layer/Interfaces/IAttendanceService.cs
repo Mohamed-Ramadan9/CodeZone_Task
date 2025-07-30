@@ -11,7 +11,7 @@ namespace Business_Layer.Interfaces
     public interface IAttendanceService
     {
         Task RecordAttendanceAsync(AttendanceRecordViewModel model);
-        Task UpdateAttendanceAsync(int attendanceId, AttendanceStatus newStatus);
+        Task UpdateAttendanceAsync(AttendanceRecordViewModel model);
         Task DeleteAttendanceAsync(int attendanceId);
         Task<AttendanceViewModel> GetAttendanceByIdAsync(int id);
         Task<IEnumerable<AttendanceViewModel>> GetFilteredAttendanceAsync(
@@ -27,5 +27,7 @@ namespace Business_Layer.Interfaces
         Task<(int presents, int absents, double percentage)>
           GetMonthlyStatsForEmployee(int employeeCode, int year, int month);
         Task DeleteEmployeeAttendanceAsync(int employeeCode);
+        Task<IEnumerable<AttendanceViewModel>> GetAttendanceByEmployeeAsync(int employeeId);
+        Task<PaginatedAttendanceListViewModel> GetPaginatedAttendanceAsync(int page = 1, int pageSize = 10);
     }
 }

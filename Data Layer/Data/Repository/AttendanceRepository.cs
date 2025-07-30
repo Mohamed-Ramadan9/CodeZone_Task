@@ -36,6 +36,8 @@ namespace Data_Layer.Data.Repository
             .FirstOrDefaultAsync(a => a.EmployeeCode == employeeId && a.Date.Date == date.Date);
         }
 
+       
+
         public async Task<IEnumerable<Attendance>> GetFilteredAttendanceAsync(string? departmentCode = null, int? employeeId = null, DateTime? startDate = null, DateTime? endDate = null)
         {
             var query = _context.Attendances
@@ -45,7 +47,7 @@ namespace Data_Layer.Data.Repository
              .AsQueryable();
 
             if (!string.IsNullOrEmpty(departmentCode))
-                query = query.Where(a => a.Employee.DepartmentCode == departmentCode);
+                query = query.Where(a => a.Employee.Department.Code == departmentCode);
 
             if (employeeId.HasValue)
                 query = query.Where(a => a.EmployeeCode == employeeId.Value);
@@ -105,7 +107,19 @@ namespace Data_Layer.Data.Repository
         public async Task<IEnumerable<Attendance>> GetByEmployeeAsync(int employeeCode)
         {
             return await _context.Attendances
+                .Include(a => a.Employee)
+                .ThenInclude(e => e.Department)
                 .Where(a => a.EmployeeCode == employeeCode)
+                .ToListAsync();
+        }
+
+        // Override GetAllAsync to include related entities
+        public new async Task<IEnumerable<Attendance>> GetAllAsync()
+        {
+            return await _context.Attendances
+                .Include(a => a.Employee)
+                .ThenInclude(e => e.Department)
+                .AsNoTracking()
                 .ToListAsync();
         }
     }

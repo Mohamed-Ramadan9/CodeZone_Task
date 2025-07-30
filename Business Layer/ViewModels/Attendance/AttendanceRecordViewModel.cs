@@ -10,6 +10,7 @@ namespace Business_Layer.ViewModels.Attendance
 {
     public class AttendanceRecordViewModel
     {
+        public int Id { get; set; }
         [Required]
         public int EmployeeCode { get; set; }
 

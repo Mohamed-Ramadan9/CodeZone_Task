@@ -97,16 +97,21 @@ namespace Business_Layer.Services
             await _attendanceRepository.SaveChangesAsync();
         }
 
-        public async Task UpdateAttendanceAsync(int attendanceId, AttendanceStatus newStatus)
+        public async Task UpdateAttendanceAsync(AttendanceRecordViewModel model)
         {
-            var attendance = await _attendanceRepository.GetAttendanceByIdAsync(attendanceId);
+            // Validate the date
+            if (model.Date > DateTime.Today)
+                throw new ValidationException("Cannot update future attendance");
+
+            var attendance = await _attendanceRepository.GetAttendanceByIdAsync(model.Id);
             if (attendance == null)
                 throw new KeyNotFoundException("Attendance record not found");
 
-            if (attendance.Date > DateTime.Today)
-                throw new ValidationException("Cannot update future attendance");
+            // Update properties
+            attendance.EmployeeCode = model.EmployeeCode;
+            attendance.Date = model.Date;
+            attendance.Status = model.Status;
 
-            attendance.Status = newStatus;
             await _attendanceRepository.UpdateAsync(attendance);
             await _attendanceRepository.SaveChangesAsync();
         }
@@ -140,6 +145,35 @@ namespace Business_Layer.Services
                 await _attendanceRepository.DeleteAsync(record);
             }
             await _attendanceRepository.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<AttendanceViewModel>> GetAttendanceByEmployeeAsync(int employeeId)
+        {
+            var attendances = await _attendanceRepository.GetByEmployeeAsync(employeeId);
+            return attendances.Select(a => _mapper.Map<AttendanceViewModel>(a));
+        }
+
+        public async Task<PaginatedAttendanceListViewModel> GetPaginatedAttendanceAsync(int page = 1, int pageSize = 10)
+        {
+            var allRecords = await _attendanceRepository.GetAllAsync();
+            var totalRecords = allRecords.Count();
+            var totalPages = (int)Math.Ceiling((double)totalRecords / pageSize);
+            
+            var pagedRecords = allRecords
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+
+            var attendanceViewModels = _mapper.Map<IEnumerable<AttendanceViewModel>>(pagedRecords);
+
+            return new PaginatedAttendanceListViewModel
+            {
+                AttendanceRecords = attendanceViewModels,
+                CurrentPage = page,
+                TotalPages = totalPages,
+                PageSize = pageSize,
+                TotalRecords = totalRecords
+            };
         }
     }
 }

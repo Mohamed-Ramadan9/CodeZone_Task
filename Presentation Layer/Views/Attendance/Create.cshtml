@@ -1,0 +1,17 @@
+﻿@model Business_Layer.ViewModels.Attendance.AttendanceRecordViewModel
+
+@{
+    ViewBag.Title = "Mark Attendance";
+}
+
+<h2>Mark Attendance</h2>
+
+<form asp-action="Create" method="post">
+    <partial name="_Form" model="Model" />
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <a asp-action="Index" class="btn btn-secondary">Back</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

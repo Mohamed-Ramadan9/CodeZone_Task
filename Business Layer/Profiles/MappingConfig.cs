@@ -25,6 +25,8 @@ namespace Business_Layer.Profiles
                 .IncludeBase<Employee, EmployeeViewModel>()
                 .ForMember(dest => dest.DepartmentName,
                            opt => opt.MapFrom(src => src.Department.Name))
+                .ForMember(dest => dest.DepartmentCode,
+                           opt => opt.MapFrom(src => src.Department.Code))
                 .ForMember(dest => dest.PresentCount,
                            opt => opt.Ignore()) // populate in service
                 .ForMember(dest => dest.AbsentCount,
@@ -49,7 +51,8 @@ namespace Business_Layer.Profiles
                            opt => opt.MapFrom(src => src.Employees.Count));
 
             // Create/Edit ViewModel → Entity
-            CreateMap<DepartmentViewModel, Department>();
+            CreateMap<DepartmentViewModel, Department>()
+                .ForMember(d => d.Id, opt => opt.Ignore()); // Id is auto-generated
 
             // ─── Attendance ─────────────────────────────────────
 
@@ -58,7 +61,7 @@ namespace Business_Layer.Profiles
                 .ForMember(dest => dest.EmployeeName,
                            opt => opt.MapFrom(src => src.Employee.FullName))
                 .ForMember(dest => dest.DepartmentCode,
-                           opt => opt.MapFrom(src => src.Employee.DepartmentCode));
+                           opt => opt.MapFrom(src => src.Employee.Department.Code));
 
             // Record ViewModel → Entity (for create/edit)
             CreateMap<AttendanceRecordViewModel, Attendance>()

@@ -11,8 +11,9 @@ namespace Data_Layer.Data.Interfaces
     public interface IDepartmentRepo : IRepository<Department>
     {
         Task<Department> GetDepartmentByCodeAsync(string code);
-        Task<bool> IsCodeUniqueAsync(string code, string? excludeId = null);
-        Task<bool> IsNameUniqueAsync(string name, string? excludeId = null);
+        Task<Department> GetDepartmentByIdAsync(int id);
+        Task<bool> IsCodeUniqueAsync(string code, int? excludeId = null);
+        Task<bool> IsNameUniqueAsync(string name, int? excludeId = null);
         Task<int> GetEmployeeCountAsync(string departmentCode);
     }
 }

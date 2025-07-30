@@ -12,11 +12,12 @@ namespace Business_Layer.Interfaces
     {
         Task<DepartmentListViewModel> CreateDepartmentAsync(DepartmentViewModel department);
         Task UpdateDepartmentAsync(DepartmentViewModel department);
-        Task DeleteDepartmentAsync(string code);
+        Task DeleteDepartmentAsync(int id);
         Task<IEnumerable<DepartmentListViewModel>> GetAllDepartmentsAsync();
         Task<DepartmentViewModel> GetDepartmentByCodeAsync(string code);
-        Task<bool> IsCodeUniqueAsync(string code, string? excludeId = null);
-        Task<bool> IsNameUniqueAsync(string name, string? excludeId = null);
+        Task<DepartmentViewModel> GetDepartmentByIdAsync(int id);
+        Task<bool> IsCodeUniqueAsync(string code, int? excludeId = null);
+        Task<bool> IsNameUniqueAsync(string name, int? excludeId = null);
         Task<int> GetEmployeeCountAsync(string departmentCode);
     }
 }

@@ -9,6 +9,7 @@ namespace Business_Layer.ViewModels.Employee
     public class EmployeeListViewModel :EmployeeViewModel
     {
         public string DepartmentName { get; set; }
+        public string DepartmentCode { get; set; } // For display purposes
         public int PresentCount { get; set; }
         public int AbsentCount { get; set; }
         public double AttendancePercentage { get; set; }

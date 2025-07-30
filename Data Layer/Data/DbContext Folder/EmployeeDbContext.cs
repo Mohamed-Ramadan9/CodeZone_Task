@@ -24,7 +24,8 @@ namespace Data_Layer.Data.DbContext_Folder
             // Department configuration
             modelBuilder.Entity<Department>(eb =>
             {
-                eb.HasKey(d => d.Code);
+                eb.HasKey(d => d.Id); // Changed from d.Code
+                eb.Property(d => d.Id).ValueGeneratedOnAdd(); // Added
                 eb.HasIndex(d => d.Name).IsUnique();
                 eb.HasIndex(d => d.Code).IsUnique();
                 eb.Property(d => d.Code).HasMaxLength(4);
@@ -39,7 +40,7 @@ namespace Data_Layer.Data.DbContext_Folder
                 eb.HasIndex(e => e.Email).IsUnique();
                 eb.HasOne(e => e.Department)
                   .WithMany(d => d.Employees)
-                  .HasForeignKey(e => e.DepartmentCode);
+                  .HasForeignKey(e => e.DepartmentId); // Changed from e.DepartmentCode
             });
 
             // Attendance configuration
@@ -49,20 +50,6 @@ namespace Data_Layer.Data.DbContext_Folder
                 eb.Property(a => a.Status)
                   .HasConversion<int>();
             });
-
-            // Seed sample Departments
-            modelBuilder.Entity<Department>().HasData(
-                new Department { Code = "HRMG",  Name = "Human Resources",  Location = "Cairo" },
-                new Department { Code = "TECH", Name = "Technology",  Location = "Alexandria" }
-            );
-
-            // Seed sample Employees
-            modelBuilder.Entity<Employee>().HasData(
-                new Employee { FullName = "Ali Mohamed Hassan Omar", Email = "ali@example.com", DepartmentCode = "HRMG" },
-                new Employee { FullName = "Sara Ahmed Ali Youssef", Email = "sara@example.com", DepartmentCode = "TECH" }
-            );
-
-            
         }
     }
 }

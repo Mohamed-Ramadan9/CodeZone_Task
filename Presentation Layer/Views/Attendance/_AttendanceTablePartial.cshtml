@@ -1,0 +1,21 @@
+@model PaginatedAttendanceListViewModel
+
+@foreach (var record in Model.AttendanceRecords)
+{
+    <tr data-employee="@record.EmployeeName" data-employee-code="@record.EmployeeCode" data-department="@record.DepartmentCode" data-status="@record.Status" data-date="@record.Date.ToString("yyyy-MM-dd")">
+        <td>@record.EmployeeName</td>
+        <td>@record.DepartmentCode</td>
+        <td>@record.Date.ToShortDateString()</td>
+        <td>
+            <span class="badge @(record.Status.ToString() == "Present" ? "bg-success" : record.Status.ToString() == "Absent" ? "bg-danger" : "bg-warning")">
+                @record.Status
+            </span>
+        </td>
+        <td>
+            <a asp-action="Edit" asp-route-id="@record.Id" class="btn btn-sm btn-warning">Edit</a>
+            <form asp-action="Delete" asp-route-id="@record.Id" method="post" class="d-inline" onsubmit="return confirm('Are you sure?');">
+                <button class="btn btn-sm btn-danger">Delete</button>
+            </form>
+        </td>
+    </tr>
+} 

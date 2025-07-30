@@ -1,0 +1,552 @@
+@model PaginatedAttendanceListViewModel
+
+@{
+    ViewBag.Title = "Attendance Dashboard";
+}
+
+<div class="container-fluid">
+    <!-- Header Section -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <h2>Attendance Dashboard</h2>
+            <p class="text-muted">Manage and view all attendance records with dynamic calendar interface</p>
+        </div>
+    </div>
+
+    <!-- Filters Section -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Filters & Quick Actions</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                                                 <div class="col-md-3">
+                             <div class="form-group">
+                                 <label for="filterEmployee" class="form-label">Employee</label>
+                                 <input type="text" id="filterEmployee" class="form-control" placeholder="Search by employee name...">
+                             </div>
+                         </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="filterDepartment" class="form-label">Department</label>
+                                <select id="filterDepartment" class="form-select">
+                                    <option value="">All Departments</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label for="filterStatus" class="form-label">Status</label>
+                                <select id="filterStatus" class="form-select">
+                                    <option value="">All Status</option>
+                                    <option value="Present">Present</option>
+                                    <option value="Absent">Absent</option>
+                                    <option value="NotMarked">Not Marked</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label for="filterDate" class="form-label">Date</label>
+                                <input type="date" id="filterDate" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label class="form-label">&nbsp;</label>
+                                <div>
+                                    <button id="applyFilters" class="btn btn-primary">Apply Filters</button>
+                                    <button id="clearFilters" class="btn btn-secondary">Clear</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="row">
+        <!-- Dynamic Attendance Section -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Quick Attendance Marking</h5>
+                </div>
+                <div class="card-body">
+                    <div class="form-group mb-3">
+                        <label for="employeeSelect" class="form-label">Select Employee</label>
+                        <select id="employeeSelect" class="form-select">
+                            <option value="">-- Select Employee --</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group mb-3">
+                        <label for="dateInput" class="form-label">Select Date</label>
+                        <input type="date" id="dateInput" class="form-control" max="@DateTime.Today.ToString("yyyy-MM-dd")" />
+                    </div>
+                    
+                    <div class="alert alert-info" id="statusAlert" style="display: none;">
+                        <strong>Current Status:</strong> <span id="currentStatus">Not Marked</span>
+                    </div>
+                    
+                    <div class="form-group mb-3" id="attendanceDropdown" style="display: none;">
+                        <label for="statusSelect" class="form-label">Select Status</label>
+                        <select id="statusSelect" class="form-select">
+                            <option value="">-- Select Status --</option>
+                            <option value="Present">Present</option>
+                            <option value="Absent">Absent</option>
+                        </select>
+                    </div>
+                    
+                    <div class="d-grid gap-2" id="attendanceButtons" style="display: none;">
+                        <button type="button" class="btn btn-primary" id="markAttendance">Mark Attendance</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calendar Section -->
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h5>Calendar View</h5>
+                </div>
+                <div class="card-body">
+                    <div id="calendar"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Attendance Records Section -->
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5>Attendance Records</h5>
+                    <div>
+                        <span class="badge bg-primary" id="recordCount">@Model.TotalRecords records</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover" id="attendanceTable">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Employee</th>
+                                    <th>Department</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var record in Model.AttendanceRecords)
+                                {
+                                    <tr data-employee="@record.EmployeeName" data-employee-code="@record.EmployeeCode" data-department="@record.DepartmentCode" data-status="@record.Status" data-date="@record.Date.ToString("yyyy-MM-dd")">
+                                        <td>@record.EmployeeName</td>
+                                        <td>@record.DepartmentCode</td>
+                                        <td>@record.Date.ToShortDateString()</td>
+                                        <td>
+                                            <span class="badge @(record.Status.ToString() == "Present" ? "bg-success" : record.Status.ToString() == "Absent" ? "bg-danger" : "bg-warning")">
+                                                @record.Status
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <a asp-action="Edit" asp-route-id="@record.Id" class="btn btn-sm btn-warning">Edit</a>
+                                            <form asp-action="Delete" asp-route-id="@record.Id" method="post" class="d-inline" onsubmit="return confirm('Are you sure?');">
+                                                <button class="btn btn-sm btn-danger">Delete</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Pagination Controls -->
+                    @if (Model.TotalPages > 1)
+                    {
+                        <nav aria-label="Attendance records pagination">
+                            <ul class="pagination justify-content-center">
+                                @if (Model.HasPreviousPage)
+                                {
+                                    <li class="page-item">
+                                        <a class="page-link" asp-action="Dashboard" asp-route-page="@(Model.CurrentPage - 1)" asp-route-pageSize="@Model.PageSize">Previous</a>
+                                    </li>
+                                }
+                                
+                                @for (int i = 1; i <= Model.TotalPages; i++)
+                                {
+                                    <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
+                                        <a class="page-link" asp-action="Dashboard" asp-route-page="@i" asp-route-pageSize="@Model.PageSize">@i</a>
+                                    </li>
+                                }
+                                
+                                @if (Model.HasNextPage)
+                                {
+                                    <li class="page-item">
+                                        <a class="page-link" asp-action="Dashboard" asp-route-page="@(Model.CurrentPage + 1)" asp-route-pageSize="@Model.PageSize">Next</a>
+                                    </li>
+                                }
+                            </ul>
+                        </nav>
+                        
+                        <div class="text-center text-muted">
+                            <small>Showing @((Model.CurrentPage - 1) * Model.PageSize + 1) to @Math.Min(Model.CurrentPage * Model.PageSize, Model.TotalRecords) of @Model.TotalRecords records</small>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script>
+        $(document).ready(function() {
+            let currentEmployeeCode = null;
+            let currentDate = null;
+            
+            // Initialize date input with today's date
+            const today = new Date().toISOString().split('T')[0];
+            $('#dateInput').val(today);
+            $('#filterDate').val(today);
+            
+            // Load employees and departments
+            loadEmployees();
+            loadDepartments();
+            
+                         // Event handlers for quick attendance marking
+             $('#employeeSelect').change(function() {
+                 currentEmployeeCode = $(this).val();
+                 console.log('Employee selected:', currentEmployeeCode);
+                 updateAttendanceStatus();
+             });
+             
+             $('#dateInput').change(function() {
+                 currentDate = $(this).val();
+                 console.log('Date selected:', currentDate);
+                 updateAttendanceStatus();
+             });
+            
+            // Attendance dropdown and button handlers
+            $('#statusSelect').change(function() {
+                if ($(this).val()) {
+                    $('#attendanceButtons').show();
+                } else {
+                    $('#attendanceButtons').hide();
+                }
+            });
+            
+            $('#markAttendance').click(function() {
+                const status = $('#statusSelect').val();
+                if (status) {
+                    updateAttendance(status);
+                } else {
+                    showAlert('warning', 'Please select a status');
+                }
+            });
+            
+                         // Filter handlers
+             $('#applyFilters').click(function() {
+                 applyFilters();
+             });
+             
+             $('#clearFilters').click(function() {
+                 clearFilters();
+             });
+             
+             // Real-time filtering for employee search
+                    $('#filterEmployee').on('input', function () {
+                    const value = $(this).val().trim();
+                 if (value === "")
+                 {
+                clearFilters(); // Show all rows
+                 } else {
+                applyFilters(); // Apply filters as usual
+                        }
+        });
+        
+            
+            // Initialize calendar
+            initializeCalendar();
+            
+                         function loadEmployees() {
+                 $.ajax({
+                     url: '/Employee/GetEmployeesForDropdown',
+                     type: 'GET',
+                     success: function(data) {
+                         const select = $('#employeeSelect');
+                         
+                         select.empty();
+                         select.append('<option value="">-- Select Employee --</option>');
+                         
+                         data.forEach(function(employee) {
+                             const option = `<option value="${employee.employeeCode}">${employee.displayText}</option>`;
+                             select.append(option);
+                         });
+                     },
+                     error: function() {
+                         console.error('Failed to load employees');
+                     }
+                 });
+             }
+            
+            function loadDepartments() {
+                $.ajax({
+                    url: '/Department/GetAllDepartments',
+                    type: 'GET',
+                    success: function(data) {
+                        const select = $('#filterDepartment');
+                        select.empty();
+                        select.append('<option value="">All Departments</option>');
+                        
+                        data.forEach(function(dept) {
+                            select.append(`<option value="${dept.code}">${dept.name}</option>`);
+                        });
+                    },
+                    error: function() {
+                        console.error('Failed to load departments');
+                    }
+                });
+            }
+            
+                         function updateAttendanceStatus() {
+                 console.log('updateAttendanceStatus called with:', { currentEmployeeCode, currentDate });
+                 
+                 if (!currentEmployeeCode || !currentDate) {
+                     console.log('Missing employee or date, hiding elements');
+                     $('#statusAlert').hide();
+                     $('#attendanceDropdown').hide();
+                     $('#attendanceButtons').hide();
+                     return;
+                 }
+                 
+                 console.log('Making AJAX call to get attendance status');
+                 $.ajax({
+                     url: '/Attendance/GetAttendanceStatus',
+                     type: 'GET',
+                     data: {
+                         employeeCode: currentEmployeeCode,
+                         date: currentDate
+                     },
+                     success: function(data) {
+                         console.log('Attendance status received:', data);
+                         $('#currentStatus').text(data.status);
+                         $('#statusAlert').show();
+                         $('#attendanceDropdown').show();
+                         $('#statusSelect').val(''); // Reset dropdown
+                         $('#attendanceButtons').hide(); // Hide until status is selected
+                         
+                         // Update calendar
+                         updateCalendar();
+                     },
+                     error: function(xhr, status, error) {
+                         console.error('Failed to get attendance status:', error);
+                         $('#currentStatus').text('Error');
+                         $('#statusAlert').show();
+                         $('#attendanceDropdown').show();
+                     }
+                 });
+             }
+            
+            function updateAttendance(status) {
+                if (!currentEmployeeCode || !currentDate) {
+                    showAlert('warning', 'Please select both employee and date');
+                    return;
+                }
+                
+                $.ajax({
+                    url: '/Attendance/UpdateAttendance',
+                    type: 'POST',
+                    data: {
+                        employeeCode: currentEmployeeCode,
+                        date: currentDate,
+                        status: status
+                    },
+                    success: function(data) {
+                        if (data.success) {
+                            $('#currentStatus').text(status);
+                            $('#statusSelect').val(''); // Reset dropdown
+                            $('#attendanceButtons').hide();
+                            updateCalendar();
+                            showAlert('success', 'Attendance updated successfully');
+                            
+                            // Refresh the table without page reload
+                            refreshAttendanceTable();
+                        } else {
+                            showAlert('danger', data.message || 'Failed to update attendance');
+                        }
+                    },
+                    error: function() {
+                        showAlert('danger', 'Failed to update attendance');
+                    }
+                });
+            }
+
+            function applyFilters() {
+                const employee = $('#filterEmployee').val().toLowerCase();
+                const department = $('#filterDepartment').val();
+                const status = $('#filterStatus').val();
+                const date = $('#filterDate').val();
+
+                $('#attendanceTable tbody tr').each(function () {
+                    let show = true;
+                    const employeeData = $(this).data('employee').toLowerCase();
+
+                    if (employee) {
+                        const pattern = new RegExp(`\\b${employee}`, 'i');
+                        if (!pattern.test(employeeData)) show = false;
+                    }
+
+                    if (department && $(this).data('department') !== department) show = false;
+                    if (status && $(this).data('status') !== status) show = false;
+                    if (date && $(this).data('date') !== date) show = false;
+
+                    $(this).toggle(show);
+                });
+
+                updateRecordCount();
+        }
+            
+            function clearFilters() {
+                $('#filterEmployee').val('');
+                $('#filterDepartment').val('');
+                $('#filterStatus').val('');
+                $('#filterDate').val(today);
+                
+                $('#attendanceTable tbody tr').show();
+                updateRecordCount();
+            }
+            
+            function updateRecordCount() {
+                const visibleCount = $('#attendanceTable tbody tr:visible').length;
+                $('#recordCount').text(visibleCount + ' records');
+            }
+            
+            function refreshAttendanceTable() {
+                // Load updated attendance records via AJAX
+                $.ajax({
+                    url: '/Attendance/GetAttendanceTablePartial',
+                    type: 'GET',
+                    data: {
+                        page: @Model.CurrentPage,
+                        pageSize: @Model.PageSize
+                    },
+                    success: function(data) {
+                        $('#attendanceTable tbody').html(data);
+                        updateRecordCount();
+                    },
+                    error: function() {
+                        console.error('Failed to refresh attendance table');
+                    }
+                });
+            }
+            
+            function initializeCalendar() {
+                const today = new Date();
+                const currentMonth = today.getMonth();
+                const currentYear = today.getFullYear();
+                
+                // Create calendar HTML
+                let calendarHtml = '<table class="table table-bordered table-sm">';
+                calendarHtml += '<thead><tr><th colspan="7" class="text-center">' + 
+                    new Date(currentYear, currentMonth).toLocaleDateString('en-US', { month: 'long', year: 'numeric' }) + 
+                    '</th></tr>';
+                calendarHtml += '<tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr></thead>';
+                calendarHtml += '<tbody>';
+                
+                const firstDay = new Date(currentYear, currentMonth, 1);
+                const lastDay = new Date(currentYear, currentMonth + 1, 0);
+                const startDate = new Date(firstDay);
+                startDate.setDate(startDate.getDate() - firstDay.getDay());
+                
+                for (let week = 0; week < 6; week++) {
+                    calendarHtml += '<tr>';
+                    for (let day = 0; day < 7; day++) {
+                        const currentDate = new Date(startDate);
+                        currentDate.setDate(startDate.getDate() + (week * 7) + day);
+                        
+                        const isCurrentMonth = currentDate.getMonth() === currentMonth;
+                        const isToday = currentDate.toDateString() === today.toDateString();
+                        const isFuture = currentDate > today;
+                        
+                        let className = 'calendar-day';
+                        if (isToday) className += ' table-primary';
+                        if (isFuture) className += ' text-muted';
+                        if (!isCurrentMonth) className += ' text-muted';
+                        
+                        calendarHtml += `<td class="${className}" data-date="${currentDate.toISOString().split('T')[0]}">${currentDate.getDate()}</td>`;
+                    }
+                    calendarHtml += '</tr>';
+                }
+                calendarHtml += '</tbody></table>';
+                
+                $('#calendar').html(calendarHtml);
+                
+                // Add click handlers to calendar days
+                $('.calendar-day').click(function() {
+                    const date = $(this).data('date');
+                    const isFuture = new Date(date) > today;
+                    
+                    if (!isFuture) {
+                        $('#dateInput').val(date);
+                        currentDate = date;
+                        updateAttendanceStatus();
+                    }
+                });
+            }
+            
+            function updateCalendar() {
+                // This would update calendar colors based on attendance
+                // For now, just refresh the calendar
+                initializeCalendar();
+            }
+            
+            function showAlert(type, message) {
+                const alertHtml = `<div class="alert alert-${type} alert-dismissible fade show" role="alert">
+                    ${message}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>`;
+                
+                // Remove existing alerts
+                $('.alert').remove();
+                
+                // Add new alert
+                $('.container-fluid').prepend(alertHtml);
+                
+                // Auto-dismiss after 3 seconds
+                setTimeout(function() {
+                    $('.alert').fadeOut();
+                }, 3000);
+            }
+            
+            // Initialize record count
+            updateRecordCount();
+        });
+    </script>
+    
+    <style>
+        .calendar-day {
+            cursor: pointer;
+            text-align: center;
+            padding: 5px;
+        }
+        
+        .calendar-day:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .calendar-day.text-muted {
+            cursor: not-allowed;
+        }
+        
+        .table-responsive {
+            max-height: 600px;
+            overflow-y: auto;
+        }
+    </style>
+} 

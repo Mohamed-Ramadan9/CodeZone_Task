@@ -1,0 +1,13 @@
+﻿@model DepartmentViewModel
+
+@{
+    ViewData["Title"] = "Create Department";
+}
+
+<h2>Create Department</h2>
+
+<form asp-action="Create" method="post">
+    @Html.Partial("_DepartmentForm", new DepartmentViewModel { Id = 0 })
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

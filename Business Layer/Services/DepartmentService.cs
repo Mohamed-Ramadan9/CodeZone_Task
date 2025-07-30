@@ -50,14 +50,14 @@ namespace Business_Layer.Services
         }
         public async Task UpdateDepartmentAsync(DepartmentViewModel model)
         {
-            var department = await _departmentRepository.GetDepartmentByCodeAsync(model.Code);
+            var department = await _departmentRepository.GetDepartmentByIdAsync(model.Id);
             if (department == null)
                 throw new KeyNotFoundException("Department not found");
 
-            if (!await _departmentRepository.IsCodeUniqueAsync(model.Code))
+            if (!await _departmentRepository.IsCodeUniqueAsync(model.Code, model.Id))
                 throw new ValidationException("Department code must be unique");
 
-            if (!await _departmentRepository.IsNameUniqueAsync(model.Name, department.Code))
+            if (!await _departmentRepository.IsNameUniqueAsync(model.Name, model.Id))
                 throw new ValidationException("Department name must be unique");
 
             department.Name = model.Name;
@@ -68,14 +68,14 @@ namespace Business_Layer.Services
             await _departmentRepository.SaveChangesAsync();
         }
 
-        public async Task DeleteDepartmentAsync(string code)
+        public async Task DeleteDepartmentAsync(int id)
         {
-            var department = await _departmentRepository.GetDepartmentByCodeAsync(code);
+            var department = await _departmentRepository.GetDepartmentByIdAsync(id);
             if (department == null)
                 throw new KeyNotFoundException("Department not found");
 
             // Check if department has employees
-            if (await _departmentRepository.GetEmployeeCountAsync(code) > 0)
+            if (await _departmentRepository.GetEmployeeCountAsync(department.Code) > 0)
                 throw new InvalidOperationException("Cannot delete department with employees");
 
             await _departmentRepository.DeleteAsync(department);
@@ -94,17 +94,23 @@ namespace Business_Layer.Services
             return _mapper.Map<DepartmentViewModel>(department);
         }
 
+        public async Task<DepartmentViewModel> GetDepartmentByIdAsync(int id)
+        {
+            var department = await _departmentRepository.GetDepartmentByIdAsync(id);
+            return _mapper.Map<DepartmentViewModel>(department);
+        }
+
         public async Task<int> GetEmployeeCountAsync(string departmentCode)
         {
             return await _departmentRepository.GetEmployeeCountAsync(departmentCode);
         }
 
-        public async Task<bool> IsCodeUniqueAsync(string code, string? excludeId = null)
+        public async Task<bool> IsCodeUniqueAsync(string code, int? excludeId = null)
         {
             return await _departmentRepository.IsCodeUniqueAsync(code, excludeId);
         }
 
-        public async Task<bool> IsNameUniqueAsync(string name, string? excludeId = null)
+        public async Task<bool> IsNameUniqueAsync(string name, int? excludeId = null)
         {
             return await  _departmentRepository.IsNameUniqueAsync(name, excludeId);
         }

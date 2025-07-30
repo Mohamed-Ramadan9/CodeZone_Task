@@ -26,19 +26,27 @@ namespace Data_Layer.Data.Repository
                 .FirstOrDefaultAsync(d => d.Code == code);
         }
 
+        public async Task<Department> GetDepartmentByIdAsync(int id)
+        {
+            return await _context.Departments
+                .Include(d => d.Employees)
+                .FirstOrDefaultAsync(d => d.Id == id);
+        }
+
         public async Task<int> GetEmployeeCountAsync(string departmentCode)
         {
             return await _context.Employees
-                .CountAsync(e => e.DepartmentCode == departmentCode);
+                .Include(e => e.Department)
+                .CountAsync(e => e.Department.Code == departmentCode);
         }
 
-        public async Task<bool> IsCodeUniqueAsync(string code, string? excludeCode = null)
+        public async Task<bool> IsCodeUniqueAsync(string code, int? excludeId = null)
         {
             var query = _context.Departments.AsQueryable();
 
-            if (excludeCode != null)
-                // exclude the department with that Code (for edit scenarios)
-                query = query.Where(d => d.Code != excludeCode);
+            if (excludeId.HasValue)
+                // exclude the department with that Id (for edit scenarios)
+                query = query.Where(d => d.Id != excludeId.Value);
 
             bool exists = await query
                 .AnyAsync(d => d.Code.ToUpper() == code.ToUpper());
@@ -47,18 +55,27 @@ namespace Data_Layer.Data.Repository
             return !exists;
         }
 
-        public async Task<bool> IsNameUniqueAsync(string name, string? excludeCode = null)
+        public async Task<bool> IsNameUniqueAsync(string name, int? excludeId = null)
         {
             var query = _context.Departments.AsQueryable();
 
-            if (excludeCode != null)
+            if (excludeId.HasValue)
                
-                query = query.Where(d => d.Code != excludeCode);
+                query = query.Where(d => d.Id != excludeId.Value);
 
             bool exists = await query
                 .AnyAsync(d => d.Name.ToLower() == name.ToLower());
 
             return !exists;
+        }
+
+        // Override GetAllAsync to include employees for proper employee count
+        public new async Task<IEnumerable<Department>> GetAllAsync()
+        {
+            return await _context.Departments
+                .Include(d => d.Employees)
+                .AsNoTracking()
+                .ToListAsync();
         }
 
     }

@@ -21,7 +21,6 @@ namespace Business_Layer.ViewModels.Employee
         public string Email { get; set; }
 
         [Required]
-        [StringLength(4, MinimumLength = 4)]
-        public string DepartmentCode { get; set; }
+        public int DepartmentId { get; set; }
     }
 }

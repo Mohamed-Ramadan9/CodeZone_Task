@@ -7,6 +7,8 @@ namespace Data_Layer.Data.Models
     public class Department
     {
         [Key]
+        public int Id { get; set; } // Auto-generated primary key
+
         [Required, StringLength(4, MinimumLength = 4), RegularExpression("^[A-Z]{4}$")]
         public string Code { get; set; }
 

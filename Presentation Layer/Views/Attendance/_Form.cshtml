@@ -1,0 +1,24 @@
+﻿@model Business_Layer.ViewModels.Attendance.AttendanceRecordViewModel
+
+<div class="mb-3">
+    <label asp-for="EmployeeCode" class="form-label"></label>
+    <select asp-for="EmployeeCode" class="form-select" asp-items="ViewBag.Employees">
+        <option value="">-- Select Employee --</option>
+    </select>
+    <span asp-validation-for="EmployeeCode" class="text-danger"></span>
+</div>
+
+<div class="mb-3">
+    <label asp-for="Date" class="form-label"></label>
+    <input asp-for="Date" class="form-control" type="date" />
+    <span asp-validation-for="Date" class="text-danger"></span>
+</div>
+
+<div class="mb-3">
+    <label asp-for="Status" class="form-label"></label>
+    <select asp-for="Status" class="form-select" asp-items="Html.GetEnumSelectList<AttendanceStatus>()">
+        <option value="">-- Select Status --</option>
+    </select>
+    <span asp-validation-for="Status" class="text-danger"></span>
+</div>
+

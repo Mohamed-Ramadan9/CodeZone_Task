@@ -10,6 +10,7 @@ using Business_Layer.ViewModels.Employee;
 using Data_Layer.Data.Interfaces;
 using Data_Layer.Data.Models;
 using Data_Layer.Data.Repository;
+using Microsoft.EntityFrameworkCore;
 
 namespace Business_Layer.Services
 {
@@ -32,7 +33,7 @@ namespace Business_Layer.Services
         _mapper = mapper;
         
         }
-        public async Task<EmployeeListViewModel> CreateEmployeeAsync(EmployeeListViewModel model)
+        public async Task CreateEmployeeAsync(EmployeeViewModel model)
         {
             if (!ValidateFullName(model.FullName))
                 throw new ValidationException("Full name must consist of four names, each at least 2 characters");
@@ -45,19 +46,9 @@ namespace Business_Layer.Services
             // Add to repository
             await _repo.AddAsync(employee);
             await _repo.SaveChangesAsync();
-
-            // Return view model
-            var result = _mapper.Map<EmployeeListViewModel>(employee);
-            result.PresentCount = 0;
-            result.AbsentCount = 0;
-            result.AttendancePercentage = 0;
-
-            return result;
-            
-            
         }
 
-        public async Task UpdateEmployeeAsync(EmployeeListViewModel employee)
+        public async Task UpdateEmployeeAsync(EmployeeViewModel employee)
         {
             var existing = await _repo.GetEmployeeByCode(employee.EmployeeCode);
             if (existing == null)
@@ -71,7 +62,7 @@ namespace Business_Layer.Services
 
             existing.FullName = employee.FullName;
             existing.Email = employee.Email;
-            existing.DepartmentCode = employee.DepartmentCode;
+            existing.DepartmentId = employee.DepartmentId;
 
             await _repo.UpdateAsync(existing);
             await _repo.SaveChangesAsync();
@@ -113,6 +104,48 @@ namespace Business_Layer.Services
             }).ToList();
         }
 
+        public async Task<PaginatedEmployeeListViewModel> GetPaginatedEmployeesAsync(int page = 1, int pageSize = 10)
+        {
+            var allEmployees = await _repo.GetAllEmployeesWithDepartmentAsync();
+            var totalCount = allEmployees.Count();
+            var totalPages = (int)Math.Ceiling((double)totalCount / pageSize);
+            
+            // Apply pagination
+            var pagedEmployees = allEmployees
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+
+            var employeeCodes = pagedEmployees.Select(e => e.EmployeeCode).ToList();
+            var now = DateTime.Now;
+            
+            // Get attendance stats in bulk for the current page
+            var attendanceStats = await _attendanceService
+                .GetMonthlyStatsForEmployees(employeeCodes, now.Year, now.Month);
+
+            var employeeViewModels = pagedEmployees.Select(employee =>
+            {
+                var vm = _mapper.Map<EmployeeListViewModel>(employee);
+
+                if (attendanceStats.TryGetValue(employee.EmployeeCode, out var stats))
+                {
+                    vm.PresentCount = stats.presents;
+                    vm.AbsentCount = stats.absents;
+                    vm.AttendancePercentage = stats.percentage;
+                }
+                return vm;
+            }).ToList();
+
+            return new PaginatedEmployeeListViewModel
+            {
+                Employees = employeeViewModels,
+                CurrentPage = page,
+                TotalPages = totalPages,
+                PageSize = pageSize,
+                TotalCount = totalCount
+            };
+        }
+
         public async Task<EmployeeViewModel> GetEmployeeByCodeAsync(int code)
         {
            var emp = await _repo.GetEmployeeByCode(code);
@@ -152,7 +185,18 @@ namespace Business_Layer.Services
                 .GetMonthlyStatsForEmployee(employeeCode, now.Year, now.Month);
         }
 
-        
+        // EmployeeService.cs
+        public async Task<List<EmployeeDropdownViewModel>> GetAllEmployeesForDropdownAsync()
+        {
+            var employees = await _repo.GetAllAsync();
+
+            // Project to view model
+            return employees.Select(e => new EmployeeDropdownViewModel
+            {
+                EmployeeCode = e.EmployeeCode,
+                DisplayText = $"{e.FullName} (EMP{e.EmployeeCode:0000})"
+            }).ToList();
+        }
 
         public Task<bool> IsEmailUniqueAsync(string email, int? excludeId = null)
         {

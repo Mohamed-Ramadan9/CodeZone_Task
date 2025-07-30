@@ -7,7 +7,7 @@ namespace CodeZoneTask_MVC_.Interfaces
         Task<IEnumerable<T>> GetAllAsync();
         Task AddAsync(T entity);
         Task UpdateAsync(T entity);
-        Task DeleteAsync(object id);
+        Task DeleteAsync(T entity);
         Task<int> SaveChangesAsync();
 
     }
