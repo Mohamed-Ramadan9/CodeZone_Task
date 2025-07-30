@@ -51,12 +51,13 @@ Presentation Layer (ASP.NET MVC)
 ├── Controllers
 ├── Views (Razor, Partial Views)
 │
-├── ViewModels
+|
 │
 ├── Business Layer
 │   ├── Services (business logic, validation)
 │   ├── DTOs
 │   └── Profiles (AutoMapper)
+|    └── ViewModels
 │
 └── Data Layer
     ├── Models (entities)
@@ -78,7 +79,7 @@ Presentation Layer (ASP.NET MVC)
 
 1. **Clone the repository:**
    ```
-   git clone <your-repo-url>
+   git clone https://github.com/Mohamed-Ramadan9/CodeZone_Task.git
    cd CodeZone_Mohamed_Ramadan
    ```
 2. **Restore NuGet packages:**
@@ -97,8 +98,7 @@ Presentation Layer (ASP.NET MVC)
 
    Or use Visual Studio: Set `Mohamed_Ramadan_Code_Zone_Task` as the startup project and press F5.
 
-5. **Access the app:**
-   - Open your browser and navigate to `http://localhost:5000` (or the port shown in the console)
+
 
 ---
 
@@ -149,6 +149,4 @@ Developed by Mohamed Ramadan as an ASP.NET MVC/EF Core N-tier architecture sampl
 
 ---
 
-## License
 
-This project is for educational/demo purposes. Please contact the author for other uses.
