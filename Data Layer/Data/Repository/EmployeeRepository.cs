@@ -24,7 +24,6 @@ namespace Data_Layer.Data.Repository
         {
             return await _context.Employees
                 .Include(e => e.Department)
-                .AsNoTracking()
                 .FirstOrDefaultAsync(e => e.EmployeeCode == code);  
         }
 

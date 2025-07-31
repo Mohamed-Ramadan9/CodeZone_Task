@@ -9,6 +9,7 @@ namespace CodeZoneTask_MVC_.Interfaces
         Task UpdateAsync(T entity);
         Task DeleteAsync(T entity);
         Task<int> SaveChangesAsync();
+        public void DetachEntity(T entity);
 
     }
 }

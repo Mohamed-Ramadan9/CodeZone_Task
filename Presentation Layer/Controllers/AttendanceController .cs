@@ -77,6 +77,8 @@ namespace Mohamed_Ramadan_Code_Zone_Task.Controllers
         {
             if (!ModelState.IsValid)
             {
+                // this is not a business logic but method that calls the service and get the Selected list
+                // made it for usability
                 await ReloadEmployeeDropdown();
                 return View(model);
             }
@@ -99,22 +101,14 @@ namespace Mohamed_Ramadan_Code_Zone_Task.Controllers
         {
             try
             {
-                var record = await _attendanceService.GetAttendanceByIdAsync(id);
-                if (record == null)
+                var editModel = await _attendanceService.GetAttendanceRecordForEditAsync(id);
+                if (editModel == null)
                 {
                     SetAlert("warning", "Not Found", "Attendance record not found");
                     return RedirectToAction(nameof(Index));
                 }
-
-                // Convert AttendanceViewModel to AttendanceRecordViewModel for editing
-                var editModel = new AttendanceRecordViewModel
-                {
-                    Id = record.Id,
-                    EmployeeCode = record.EmployeeCode,
-                    Date = record.Date,
-                    Status = record.Status
-                };
-
+                // this is not a business logic but method that calls the service and get the Selected list
+                // made it for usability
                 await ReloadEmployeeDropdown();
                 return View(editModel);
             }
@@ -272,13 +266,9 @@ namespace Mohamed_Ramadan_Code_Zone_Task.Controllers
         {
             try
             {
-                if (!int.TryParse(employeeCode, out int empCode) || !DateTime.TryParse(date, out DateTime parsedDate))
-                {
-                    return Json(new { status = "NotMarked" });
-                }
+                var result = await _attendanceService.GetAttendanceStatusByInputsAsync(employeeCode, date);
 
-                var status = await _attendanceService.GetAttendanceStatusAsync(empCode, parsedDate);
-                return Json(new { status = status.ToString() });
+                return Json(result);
             }
             catch (Exception ex)
             {
@@ -286,33 +276,26 @@ namespace Mohamed_Ramadan_Code_Zone_Task.Controllers
             }
         }
 
+
         [HttpPost]
         public async Task<IActionResult> UpdateAttendance(int employeeCode, DateTime date, string status)
         {
             try
             {
-                var attendanceStatus = Enum.Parse<Data_Layer.Data.Models.AttendanceStatus>(status);
-                
-                var model = new AttendanceRecordViewModel
-                {
-                    EmployeeCode = employeeCode,
-                    Date = date,
-                    Status = attendanceStatus
-                };
+                var result = await _attendanceService.UpdateAttendanceAsync(employeeCode, date, status);
 
-                await _attendanceService.RecordAttendanceAsync(model);
-                
-                return Json(new { success = true });
+                return Json(result);
             }
             catch (ValidationException ex)
             {
                 return Json(new { success = false, message = ex.Message });
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return Json(new { success = false, message = "An error occurred while marking attendance" });
             }
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -320,28 +303,20 @@ namespace Mohamed_Ramadan_Code_Zone_Task.Controllers
         {
             try
             {
-                var attendanceStatus = (Data_Layer.Data.Models.AttendanceStatus)status;
-                
-                var model = new AttendanceRecordViewModel
-                {
-                    Id = id,
-                    Date = date,
-                    Status = attendanceStatus
-                };
+                var result = await _attendanceService.UpdateAttendanceRecordAsync(id, date, status);
 
-                await _attendanceService.UpdateAttendanceAsync(model);
-                
-                return Json(new { success = true });
+                return Json(result);
             }
             catch (ValidationException ex)
             {
                 return Json(new { success = false, message = ex.Message });
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return Json(new { success = false, message = "An error occurred while updating attendance record" });
             }
         }
+
 
         private async Task ReloadEmployeeDropdown()
         {

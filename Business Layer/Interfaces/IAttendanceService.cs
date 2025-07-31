@@ -29,5 +29,9 @@ namespace Business_Layer.Interfaces
         Task DeleteEmployeeAttendanceAsync(int employeeCode);
         Task<IEnumerable<AttendanceViewModel>> GetAttendanceByEmployeeAsync(int employeeId);
         Task<PaginatedAttendanceListViewModel> GetPaginatedAttendanceAsync(int page = 1, int pageSize = 10);
+        Task<AttendanceRecordViewModel?> GetAttendanceRecordForEditAsync(int id);
+        Task<object> GetAttendanceStatusByInputsAsync(string employeeCode, string date);
+        Task<object> UpdateAttendanceAsync(int employeeCode, DateTime date, string status);
+        Task<object> UpdateAttendanceRecordAsync(int id, DateTime date, int status);
     }
 }

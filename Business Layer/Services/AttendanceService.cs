@@ -173,5 +173,67 @@ namespace Business_Layer.Services
                 TotalRecords = totalRecords
             };
         }
+
+        public async Task<AttendanceRecordViewModel?> GetAttendanceRecordForEditAsync(int id)
+        {
+            var record = await _attendanceRepository.GetAttendanceByIdAsync(id);
+            if (record == null) return null;
+
+            return new AttendanceRecordViewModel
+            {
+                Id = record.Id,
+                EmployeeCode = record.EmployeeCode,
+                Date = record.Date,
+                Status = record.Status
+            };
+        }
+
+        public async Task<object> GetAttendanceStatusByInputsAsync(string employeeCode, string date)
+        {
+            if (!int.TryParse(employeeCode, out int empCode) || !DateTime.TryParse(date, out DateTime parsedDate))
+            {
+                return new { status = "NotMarked" };
+            }
+
+            var status = await GetAttendanceStatusAsync(empCode, parsedDate);
+            return new { status = status.ToString() };
+        }
+
+        public async Task<object> UpdateAttendanceAsync(int employeeCode, DateTime date, string status)
+        {
+            if (!Enum.TryParse<AttendanceStatus>(status, out var attendanceStatus))
+            {
+                throw new ValidationException("Invalid attendance status.");
+            }
+
+            var model = new AttendanceRecordViewModel
+            {
+                EmployeeCode = employeeCode,
+                Date = date,
+                Status = attendanceStatus
+            };
+
+            await RecordAttendanceAsync(model);
+
+            return new { success = true };
+        }
+        public async Task<object> UpdateAttendanceRecordAsync(int id, DateTime date, int status)
+        {
+            if (!Enum.IsDefined(typeof(AttendanceStatus), status))
+                throw new ValidationException("Invalid attendance status.");
+
+            var attendanceStatus = (AttendanceStatus)status;
+
+            var model = new AttendanceRecordViewModel
+            {
+                Id = id,
+                Date = date,
+                Status = attendanceStatus
+            };
+
+            await UpdateAttendanceAsync(model);
+
+            return new { success = true };
+        }
     }
 }

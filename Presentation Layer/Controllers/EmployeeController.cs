@@ -3,7 +3,6 @@ using Business_Layer.ViewModels.Employee;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Mohamed_Ramadan_Code_Zone_Task.Extensions;
 
 namespace Mohamed_Ramadan_Code_Zone_Task.Controllers
 {
@@ -112,6 +111,7 @@ namespace Mohamed_Ramadan_Code_Zone_Task.Controllers
             catch (Exception ex)
             {
                 SetAlert("danger", "Error", $"Error updating employee: {ex.Message}");
+                await LoadDepartmentOptions();
                 return View(model);
             }
         }
@@ -137,7 +137,7 @@ namespace Mohamed_Ramadan_Code_Zone_Task.Controllers
         }
 
 
-
+        
         private async Task LoadDepartmentOptions()
         {
             try

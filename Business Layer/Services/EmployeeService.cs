@@ -18,7 +18,6 @@ namespace Business_Layer.Services
     {
         private readonly IEmployeeRepo _repo;
         private readonly IAttendanceService _attendanceService;
-        private readonly IAttendanceRepo _attRepo;
         private readonly IMapper _mapper;
 
         public EmployeeService(
@@ -29,7 +28,6 @@ namespace Business_Layer.Services
         { 
         _repo = repo;
         _attendanceService = attendanceService;
-        _attRepo = attendanceRepo;
         _mapper = mapper;
         
         }
@@ -76,7 +74,7 @@ namespace Business_Layer.Services
 
             // Use attendance service to delete records
             await _attendanceService.DeleteEmployeeAttendanceAsync(code);
-
+            _repo.DetachEntity(emp);
             await _repo.DeleteAsync(emp);
             await _repo.SaveChangesAsync();
         }

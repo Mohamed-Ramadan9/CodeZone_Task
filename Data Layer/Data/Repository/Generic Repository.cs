@@ -76,5 +76,15 @@ namespace Data_Layer.Data.Repository
         {
             return await _context.SaveChangesAsync();
         }
+
+        public void DetachEntity(T entity)
+        {
+            var entry = _context.Entry(entity);
+            if (entry.State != EntityState.Detached)
+            {
+                entry.State = EntityState.Detached;
+            }
+        }
+
     }
 }

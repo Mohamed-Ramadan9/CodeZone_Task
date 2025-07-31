@@ -254,12 +254,7 @@
             let currentPage = 1;
             let pageSize = 10;
             let filteredRecords = [];
-            
-            // Initialize date input with today's date
-            const today = new Date().toISOString().split('T')[0];
-            $('#dateInput').val(today);
-            $('#filterDate').val(today);
-            
+           
             // Load employees and departments
             loadEmployees();
             loadDepartments();

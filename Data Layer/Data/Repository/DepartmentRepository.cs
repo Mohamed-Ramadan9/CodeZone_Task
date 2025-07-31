@@ -45,13 +45,13 @@ namespace Data_Layer.Data.Repository
             var query = _context.Departments.AsQueryable();
 
             if (excludeId.HasValue)
-                // exclude the department with that Id (for edit scenarios)
+                
                 query = query.Where(d => d.Id != excludeId.Value);
 
             bool exists = await query
                 .AnyAsync(d => d.Code.ToUpper() == code.ToUpper());
 
-            // true = no duplicate found
+            
             return !exists;
         }
 
