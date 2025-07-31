@@ -37,7 +37,7 @@ All business logic and validation are enforced in the service layer. The project
 - **Data Seeding:**
   - Sample departments, employees (12+), and attendance records are seeded on startup
 - **Generic Repository Pattern:**
-  - Centralized data access with generic `GetByIdAsync`
+  - Centralized data access with generic methods 
 - **AutoMapper:**
   - Entity/ViewModel mapping
 
@@ -55,9 +55,10 @@ Presentation Layer (ASP.NET MVC)
 │
 ├── Business Layer
 │   ├── Services (business logic, validation)
-│   ├── DTOs
+│   ├── ViewModels
+|   |── Interfaces
 │   └── Profiles (AutoMapper)
-|    └── ViewModels
+|  
 │
 └── Data Layer
     ├── Models (entities)
@@ -131,7 +132,7 @@ Presentation Layer (ASP.NET MVC)
 ## Project Structure
 
 - `Mohamed_Ramadan_Code_Zone_Task/` — Presentation Layer (MVC)
-- `Business Layer/` — Business logic, services, DTOs, ViewModels
+- `Business Layer/` — Business logic, services, ViewModels
 - `Data Layer/` — EF Core models, repositories, DbContext
 
 ---
@@ -139,7 +140,6 @@ Presentation Layer (ASP.NET MVC)
 ## Customization
 
 - **Change Seed Data:** Edit `Business Layer/Services/DataSeedingService.cs` to modify initial departments, employees, or attendance records.
-- **Switch to SQL Database:** Replace the in-memory provider in `Program.cs` and update connection strings as needed.
 
 ---
 
